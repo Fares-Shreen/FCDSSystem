@@ -33,9 +33,14 @@ export class Courses implements OnInit {
     
     this._courseServices.getCourses(StudentId!, filter).subscribe({
       next: (res) => {
-        this.coursesInfo.set(res);
+        if (Array.isArray(res)) {
+          this.coursesInfo.set(res);
+        } else {
+          this.coursesInfo.set([res]);
+        }
         console.log(this.coursesInfo());
-      }
+      },
+      error: (err) => console.error(err),
     });
   }
 

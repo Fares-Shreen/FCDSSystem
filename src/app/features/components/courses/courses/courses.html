@@ -50,7 +50,7 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @for (course of coursesInfo(); track $index) {
+                        @if (coursesInfo()) {@for (course of coursesInfo(); track $index) {
                         <tr class="border-b border-default-medium hover:bg-neutral-tertiary transition-colors">
                             <td class="px-6 py-4 font-normal whitespace-nowrap">
                                 {{course.Course_Description}}
@@ -99,9 +99,10 @@
                                     class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-md duration-200 font-medium">
                                     Delete
                                 </button>
-                            }
+                                }
                         </tr>
-                        }
+                        }}
+
                     </tbody>
                 </table>
             </div>
